@@ -16,6 +16,17 @@ return new class extends Migration
             $table->increments('id')->primary();
             $table->string('cargo')->unique();
         });
+
+        DB::table('Cargos')->insert(array('cargo' => 'Desenvolvedor'));
+        DB::table('Cargos')->insert(array('cargo' => 'Tech Lead'));
+        DB::table('Cargos')->insert(array('cargo' => 'Analista de Markeing'));
+        DB::table('Cargos')->insert(array('cargo' => 'Diretor de Produto'));
+        DB::table('Cargos')->insert(array('cargo' => 'Diretor de Tecnologia'));
+        DB::table('Cargos')->insert(array('cargo' => 'Gerente de Produto'));
+        DB::table('Cargos')->insert(array('cargo' => 'Gerente de Tecnologia'));
+        DB::table('Cargos')->insert(array('cargo' => 'Analista de Compras'));
+        DB::table('Cargos')->insert(array('cargo' => 'Engenheiro de Software'));
+        DB::table('Cargos')->insert(array('cargo' => 'Engenheiro de Dados'));
     }
 
     /**

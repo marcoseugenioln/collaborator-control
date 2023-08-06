@@ -31,8 +31,6 @@ Route::post('colaboradores', 'ColaboradorController@store');
 
 Route::get('desempenho/create', 'DesempenhoController@create'); 
 
-Route::get('desempenho/{id}', 'DesempenhoController@show'); 
-
 Route::post('desempenho', 'DesempenhoController@store');
 
 

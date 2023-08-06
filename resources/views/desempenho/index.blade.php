@@ -1,5 +1,16 @@
 @extends('layouts.master')
 
+@php
+use App\Models\Colaborador;
+use App\Models\Cargo;
+use App\Models\Unidade;
+
+$colaboradores = new Colaborador;
+$unidades = new Unidade;
+$cargos = new Cargo;
+
+@endphp
+
 @section('content')
 <a  href="/desempenho/create">Registrar Desempenho</a><hr>
 
@@ -7,9 +18,11 @@
 <ol>
     @foreach($desempenhos as $desempenho)
         <li>
-            Nome: {{Colaborador::where('id', $desempenho->colaborador_id)->first()->nome}}
-            Cargo: {{Cargo::where('id', $desempenho->cargo_id)->first()->cargo}}
-            Unidade: {{Unidade::where('id', Colaborador::where('id', $desempenho->colaborador_id)->first()->unidade_id)->first()->nome_fantasia}}
+            Nome: {{$colaboradores->where('id', $desempenho->colaborador_id)->first()->nome}}
+            CPF: {{$colaboradores->where('id', $desempenho->colaborador_id)->first()->cpf}}
+            Email: {{$colaboradores->where('id', $desempenho->colaborador_id)->first()->email}}
+            Cargo: {{$cargos->where('id', $desempenho->cargo_id)->first()->cargo}}
+            Unidade: {{$unidades->where('id', $colaboradores->where('id', $desempenho->colaborador_id)->first()->unidade_id)->first()->nome_fantasia}}
             Nota: {{$desempenho->nota_desempenho}}
         </li>
     @endforeach

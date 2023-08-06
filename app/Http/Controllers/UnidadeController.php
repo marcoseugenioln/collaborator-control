@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Unidade;
+use App\Models\Colaborador;
 
 class UnidadeController extends Controller
 {	
@@ -16,7 +17,7 @@ class UnidadeController extends Controller
     
     public function show(Unidade $id)
     {
-        return view('unidades.show', ['unidade' => $id]);
+        return view('unidades.show', ['unidade' => $id, 'total_colaboradores' => Colaborador::where('unidade_id', $id->id)->count()]);
     }
 
     public function create()

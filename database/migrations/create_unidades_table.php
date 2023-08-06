@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+
         Schema::create('Unidades', function (Blueprint $table) 
         {
             $table->increments('id')->primary();
